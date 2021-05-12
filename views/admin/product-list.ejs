@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <a href="/admin/pro">Product</a>
+    <a href="/admin/cat">Category</a>
+    <a href="/admin/user">User</a>
+    <a href="/admin/order">Order</a>
+    <a href="/admin/logout">Logout</a>
+    <h2>Product form </h2>
+    <p>This is function of adminstrator to insert, edit, delete one product.</p>
+    <p><a href="/admin/add-product"> New Product</a></p>
+    <table style="width:100%; border : 1">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Desc</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+            <th colspan="2"></th>
+        </tr>
+        <%pros.forEach(pro=>{%>
+            <tr style="text-align: center;">
+                <td><%=pro.name%></td>
+                <td><img width="100px" height="100px" src="<%=pro.image%>"></td>
+                <td><%=pro.description%></td>
+                <td><%=pro.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')%></td>
+                <td><%=pro.qty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')%></td>
+                <td><a href="/admin/delete-product?id=<%=pro.id%>">Delete</a></td>
+                <td><a href="/admin/edit-product?id=<%=pro.id%>">Edit</a></td>
+            </tr>    
+        <%})%>
+    </table>
+</body>
+
+</html>

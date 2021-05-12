@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <a href="/admin/pro">Product</a>
+    <a href="/admin/cat">Category</a>
+    <a href="/admin/user">User</a>
+    <a href="/admin/order">Order</a>
+    <a href="/admin/logout">Logout</a>
+    <h2>User form </h2>
+    <p>This is function of adminstrator to insert, edit, delete one user.</p>
+    <p><a href="/admin/add-user"> New User</a></p>
+    <table style="width:100%; border : 1">
+        <tr>
+            <th>Full name</th>
+            <th>Username</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th colspan="2"></th>
+        </tr>
+        <%users.forEach(user=>{%>
+            <tr style="text-align: center;">
+                <td><%=user.fullname%></td>
+                <td><%=user.username%></td>
+                <td><%=user.address%></td>
+                <td><%=user.phone%></td>
+                <td><%=user.permission.name%></td>
+                <td><a href="/admin/delete-user?id=<%=user.id%>">Delete</a></td>
+                <td><a href="/admin/edit-user?id=<%=user.id%>">Edit</a></td>
+            </tr>    
+        <%})%>
+    </table>
+</body>
+
+</html>

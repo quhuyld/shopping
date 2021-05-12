@@ -1,0 +1,40 @@
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2><%=cat.name%></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <%pros.forEach(pro=>{%>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-shop-product">
+                        <div class="product-upper">
+                            <img src="<%=pro.image%>" alt="">
+                        </div>
+                        <h2><a href="/product-detail?id=<%=pro.id%>"><%=pro.name%></a></h2>
+                        <div class="product-carousel-price">
+                            <ins><%=(pro.price*((100-pro.discount)/100)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')%> VND</ins>
+                                        <del><%=pro.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')%> VND</del>
+                        </div>
+    
+                        <div class="product-option-shop">
+                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70"
+                                rel="nofollow" href="/add-to-cart?id=<%=pro.id%>&quantity=1">Add to cart</a>
+                        </div>
+                    </div>
+                </div>    
+            <%})%>
+            
+        </div>
+    </div>
+</div>

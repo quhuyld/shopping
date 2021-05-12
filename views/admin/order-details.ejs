@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <a href="/admin/pro">Product</a>
+    <a href="/admin/cat">Category</a>
+    <a href="/admin/user">User</a>
+    <a href="/admin/order">Order</a>
+    <h2>Order Details </h2>
+    <p><a href="/admin/order">Back to order page</a></p>
+    <table style="width:100%; border : 1">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+        </tr>
+        <%order.details.forEach(pro=>{%>
+            <tr style="text-align: center;">
+                <td><%=pro.product.name%></td>
+                <td><img width="100px" height="100px" src="<%=pro.product.image%>"></td>
+                <td><%=pro.product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')%></td>
+                <td><%=pro.qty.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')%></td>
+            </tr>    
+        <%})%>
+    </table>
+</body>
+
+</html>

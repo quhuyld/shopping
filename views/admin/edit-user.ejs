@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=number],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>User FORM</h2>
+    <p>This is function of adminstrator to insert, edit, delete one Product.</p>
+    <p><a href="/admin/user">Back to user page</a></p>
+    <div class="container">
+        <form action="/admin/edit-user" method="POST">
+            <input type="hidden" id="fname" name="id" value="<%=user.id%>" placeholder="Username">
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Userame</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="username" value="<%=user.username%>" placeholder="Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Fullname</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="fullname" value="<%=user.fullname%>" placeholder="Fullname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Address</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="address" value="<%=user.address%>" placeholder="Address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Phone</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="fname" name="phone" value="<%=user.phone%>" placeholder="Phone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="password" id="fpass" name="password" value="<%=user.password%>" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Permission</label>
+                </div>
+                <div class="col-75">
+                    <select name="per">
+                        <%pers.forEach(per=>{%>
+                            <%if(user.permission._id==per.id){%>
+                                <option value="<%=per._id%>" selected><%=per.name%></option> 
+                            <%}else{%>
+                                <option value="<%=per._id%>"><%=per.name%></option>
+                            <%}%>
+                        <%})%>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" row">
+                    <input type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
